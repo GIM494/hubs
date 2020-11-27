@@ -34,6 +34,11 @@ AFRAME.registerComponent("spawn-controller", {
 
     getLastWorldPosition(spawnPoint.object3D, this.el.object3D.position);
     this.el.object3D.rotation.copy(spawnPoint.object3D.rotation);
+    
+    // Added to see if outputting position works
+    // Only VR headsets have controllers, so this isn't going to work if 
+    // someone is accessing it on the browser version
+    console.log(`last spawn point: ${getLastWorldPosition(spawnPoint.object3D, this.el.object3D.position)}`);
 
     if (this.el.sceneEl.is("vr-mode")) {
       // Rotate the avatar rig such that the vr-camera faces forward.

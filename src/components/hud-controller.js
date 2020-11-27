@@ -82,6 +82,16 @@ AFRAME.registerComponent("hud-controller", {
     hud.position.y = (this.isYLocked ? this.lockedHeadPositionY : head.position.y) + offset + (1 - t) * offset;
     hud.rotation.x = (1 - t) * THREE.Math.DEG2RAD * 90;
     hud.matrixNeedsUpdate = true;
+
+    // Added to see if we can output avatar info to console
+    /* Did not work
+    console.log(`HUD xPos: ${hud.position.x}`);
+    console.log(`HUD yPos: ${hud.position.y}`);
+    console.log(`HUD zPos: ${hud.position.z}`);
+    console.log(`HUD xRot: ${hud.rotation.x}`);
+    console.log(`HUD zRot: ${hud.rotation.z}`);
+    */
+
   },
 
   play() {

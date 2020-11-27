@@ -745,12 +745,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     (document.location.pathname === "/" && defaultRoomId
       ? defaultRoomId
       : document.location.pathname.substring(1).split("/")[0]);
-  console.log(`Hub ID: ${hubId}`);
+  console.log(`Hub id: ${hubId}`);
+  console.log(`Can I get anything to print?`);
 
   if (!defaultRoomId) {
     // Default room won't work if account is required to access
     checkForAccountRequired();
   }
+ 
+  // Added to see if this would work/output to the console correctly
+  const hud = qs.get("hud-controller");
+  console.log(`HUD xPos: ${hudController.position.x}`);
+ 
 
   const subscriptions = new Subscriptions(hubId);
 
