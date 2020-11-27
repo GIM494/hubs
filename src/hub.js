@@ -755,8 +755,7 @@ document.addEventListener("DOMContentLoaded", async () => {
  
   // Added to see if this would work/output to the console correctly
   const hud = qs.get("hud-controller");
-  console.log(`HUD xPos: ${hudController.position.x}`);
- 
+  console.log(`HUD xPos: ${hud.position.x}`);
 
   const subscriptions = new Subscriptions(hubId);
 
