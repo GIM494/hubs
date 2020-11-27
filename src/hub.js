@@ -747,6 +747,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       : document.location.pathname.substring(1).split("/")[0]);
   console.log(`Hub id: ${hubId}`);
   console.log(`Can I get anything to print?`);
+  console.log(`doesn't look successful`);
 
   if (!defaultRoomId) {
     // Default room won't work if account is required to access

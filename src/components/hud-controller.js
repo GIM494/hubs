@@ -91,7 +91,6 @@ AFRAME.registerComponent("hud-controller", {
     console.log(`HUD xRot: ${hud.rotation.x}`);
     console.log(`HUD zRot: ${hud.rotation.z}`);
     */
-
   },
 
   play() {
