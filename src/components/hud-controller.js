@@ -84,13 +84,12 @@ AFRAME.registerComponent("hud-controller", {
     hud.matrixNeedsUpdate = true;
 
     // Added to see if we can output avatar info to console
-    /* Did not work
     console.log(`HUD xPos: ${hud.position.x}`);
     console.log(`HUD yPos: ${hud.position.y}`);
     console.log(`HUD zPos: ${hud.position.z}`);
     console.log(`HUD xRot: ${hud.rotation.x}`);
     console.log(`HUD zRot: ${hud.rotation.z}`);
-    */
+    
   },
 
   play() {
