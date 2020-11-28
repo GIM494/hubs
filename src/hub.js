@@ -752,9 +752,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     checkForAccountRequired();
   }
 
-  // Trial 2 at getting location
+  // Trial 2 at getting location (seemed to work) and print the position!
   var hud = document.getElementById("hud-controller");
-
+  console.log(`HUD xPos: ${hud.object3D.position.x}`);
  
   const subscriptions = new Subscriptions(hubId);
 
