@@ -753,8 +753,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   // Trial 2 at getting location
-  let hud = document.querySelector('[hud-controller]').components.hud-controller;
-
+  var hud = document.getElementById("hud-controller");
 
  
   const subscriptions = new Subscriptions(hubId);
