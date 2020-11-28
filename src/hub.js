@@ -751,6 +751,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     // Default room won't work if account is required to access
     checkForAccountRequired();
   }
+
+  // Trial 2 at getting location
+  let hud = document.querySelector('[hud-controller]').components.hud-controller;
+
+
  
   const subscriptions = new Subscriptions(hubId);
 
