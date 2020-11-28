@@ -241,14 +241,14 @@ function setupLobbyCamera() {
     camera.object3D.rotation.copy(previewCamera.rotation);
     camera.object3D.rotation.reorder("YXZ");
   } else {
-    const cameraPos = camera.object3D.position;i
+    const cameraPos = camera.object3D.position;
    
     // Added to output the position
-    console.log(`player position: ${camerPos.x}, ${cameraPos.y}, ${cameraPos.z});    
-
-
+    // console.log(`player position: ${cameraPos.x}, ${cameraPos.y}, ${cameraPos.z}`);    
+    // console.log("I want to do camera position output here");
     camera.object3D.position.set(cameraPos.x, 2.5, cameraPos.z);
   }
+  
 
   camera.object3D.matrixNeedsUpdate = true;
 
@@ -760,7 +760,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Trial 2 at getting location (seemed to work) and print the position!
   // var hud = document.getElementById("hud-controller");
   // console.log(`HUD xPos: ${hud.object3D.position.x}`);
- 
+  var hud = document.querySelector('[hud-controller]');
+  if(hud == NULL){
+     console.log("HUD controller still incorrectly retrieved");
+  }
+
   const subscriptions = new Subscriptions(hubId);
 
   if (navigator.serviceWorker) {
