@@ -761,7 +761,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   // var hud = document.getElementById("hud-controller");
   // console.log(`HUD xPos: ${hud.object3D.position.x}`);
   var hud = document.querySelector('[hud-controller]');
-  if(hud == NULL){
+  if(hud == null){
      console.log("HUD controller still incorrectly retrieved");
   }
 
