@@ -757,15 +757,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     checkForAccountRequired();
   }
 
-  // Trial 2 at getting location (seemed to work) and print the position!
-  // var hud = document.getElementById("hud-controller");
-  // console.log(`HUD xPos: ${hud.object3D.position.x}`);
-  var hud = document.querySelector('[hud-controller]').components.hud-controller;
+  // This gets the position correctly and prints it successfully 
+  var hud = document.querySelector('[hud-controller]').components["hud-controller"].el.object3D.position;
+
   if(hud == null){
      console.log("HUD controller still incorrectly retrieved");
   }
   else {
      console.log("returning non-null value");
+     console.log(hud);
   }
 
   const subscriptions = new Subscriptions(hubId);
