@@ -84,6 +84,7 @@ export class CharacterControllerSystem {
     const deltaFromHeadToTargetForHead = new THREE.Vector3();
     const targetForHead = new THREE.Vector3();
     const targetForRig = new THREE.Vector3();
+
     //TODO: Use enqueue waypoint
     return function teleportTo(targetWorldPosition) {
       this.isMotionDisabled = false;
@@ -243,16 +244,25 @@ export class CharacterControllerSystem {
           preferences.snapRotationDegrees === undefined
             ? SNAP_ROTATION_RADIAN
             : (preferences.snapRotationDegrees * Math.PI) / 180;
+
+        console.log(this.dXZ);
+        console.log(this.dXZ*180/Math.PI);
       }
       if (snapRotateRight) {
         this.dXZ -=
           preferences.snapRotationDegrees === undefined
             ? SNAP_ROTATION_RADIAN
             : (preferences.snapRotationDegrees * Math.PI) / 180;
-      }
+       
+         console.log(this.dXZ);
+         console.log(this.dXZ*180/Math.PI);
+       }
       if (snapRotateLeft || snapRotateRight) {
         this.scene.systems["hubs-systems"].soundEffectsSystem.playSoundOneShot(SOUND_SNAP_ROTATE);
       }
+      
+     
+
       const characterAcceleration = userinput.get(paths.actions.characterAcceleration);
       if (characterAcceleration) {
         const zCharacterAcceleration = -1 * characterAcceleration[1];
@@ -267,6 +277,9 @@ export class CharacterControllerSystem {
                 ? Math.min(0, zCharacterAcceleration)
                 : zCharacterAcceleration)
         );
+         //console.log(this.relativeMotion.x);
+         //console.log(this.relativeMotion.y);
+         //console.log(this.relativeMotion.z);
       }
       const lerpC = vrMode ? 0 : 0.85; // TODO: To support drifting ("ice skating"), motion needs to keep initial direction
       this.nextRelativeMotion.copy(this.relativeMotion).multiplyScalar(lerpC);
@@ -297,6 +310,12 @@ export class CharacterControllerSystem {
             ),
             displacementToDesiredPOV
           );
+
+          // This successfully gets how much we've changed in each direction
+          // This can be used to tell the robot if it needs to move forward
+          // or backward, left or right
+          console.log(displacementToDesiredPOV);
+         
 
           newPOV
             .makeTranslation(displacementToDesiredPOV.x, displacementToDesiredPOV.y, displacementToDesiredPOV.z)
@@ -380,6 +399,11 @@ export class CharacterControllerSystem {
         shouldRecomputeGroupAndNode
       );
       outPOVPosition.y += playerHeight;
+      
+      // This gets us our location for every step of the animation/movement
+      // It works but it's far more than we need to simply move the robot!
+      // console.log(outPOVPosition);
+      
       return outPOVPosition;
     };
   })();
