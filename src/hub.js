@@ -531,7 +531,7 @@ function handleHubChannelJoined(entryManager, hubChannel, messageDispatch, data)
 
   // Handle request for user gesture
   scene.addEventListener("2d-interstitial-gesture-required", () => {
-    remountUI({
+     remountUI({
       showInterstitialPrompt: true,
       onInterstitialPromptClicked: () => {
         remountUI({ showInterstitialPrompt: false, onInterstitialPromptClicked: null });
@@ -755,17 +755,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!defaultRoomId) {
     // Default room won't work if account is required to access
     checkForAccountRequired();
-  }
-
-  // This gets the position correctly and prints it successfully 
-  var hud = document.querySelector('[hud-controller]').components["hud-controller"].el.object3D.position;
-
-  if(hud == null){
-     console.log("HUD controller still incorrectly retrieved");
-  }
-  else {
-     console.log("returning non-null value");
-     console.log(hud);
   }
 
   const subscriptions = new Subscriptions(hubId);
